@@ -35,10 +35,10 @@ type WbServer struct {
 //启动服务器，绑定请求控制器
 func (this *WbServer) Start() {
 	//微信token验证
-	http.HandleFunc(weixin.SignPrefix+"/", weixin.DoSign)
+	//http.HandleFunc(weixin.SignPrefix+"/", weixin.DoSign)
 	//微信消息处理
-	http.HandleFunc(weixin.ActionPrefix+"/", weixin.DoAction)
-	//http.HandleFunc("/wx", weixin.Receiver)
+	//http.HandleFunc(weixin.ActionPrefix+"/", weixin.DoAction)
+	http.HandleFunc("/", weixin.Receiver)
 	//监听端口
 	err := http.ListenAndServe(":"+this.port, nil)
 	//服务器启动错误处理
