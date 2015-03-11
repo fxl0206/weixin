@@ -123,6 +123,6 @@ func Receiver(w http.ResponseWriter, r *http.Request) {
 	if mp.Request.MsgType == weixinmp.MsgTypeText {
 		fmt.Println("message :!" + mp.Request.Content)
 		// 回复消息
-		mp.ReplyTextMsg(w, "自动回复：你说了 "+mp.Request.Content)
+		mp.ReplyTextMsg(w, "自动回复：lucky 好哈都不晓得！ 你说了 "+mp.Request.Content)
 	}
 }
