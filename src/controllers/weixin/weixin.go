@@ -49,6 +49,10 @@ func DoSign(w http.ResponseWriter, r *http.Request) {
 	var timestamp string = strings.Join(r.Form["timestamp"], "")
 	var nonce string = strings.Join(r.Form["nonce"], "")
 	var echostr string = strings.Join(r.Form["echostr"], "")
+	fmt.Println(signature)
+	fmt.Println(timestamp)
+	fmt.Println(nonce)
+	fmt.Println(echostr)
 	tmps := []string{token, timestamp, nonce}
 	sort.Strings(tmps)
 	tmpStr := tmps[0] + tmps[1] + tmps[2]
@@ -60,6 +64,7 @@ func DoSign(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, echostr)
 	} else {
 		log.Println("signature Failed!")
+		fmt.Fprintf(w, echostr)
 	}
 }
 
