@@ -53,6 +53,8 @@ func DoSign(w http.ResponseWriter, r *http.Request) {
 	sort.Strings(tmps)
 	tmpStr := tmps[0] + tmps[1] + tmps[2]
 	tmp := str2sha1(tmpStr)
+	fmt.Println(tmp)
+	fmt.Println(echostr)
 	if tmp == signature {
 		log.Println("signature Success")
 		fmt.Fprintf(w, echostr)
