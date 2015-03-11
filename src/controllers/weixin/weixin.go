@@ -112,6 +112,7 @@ func Receiver(w http.ResponseWriter, r *http.Request) {
 	// 仅主动发送消息时可不填写token
 	fmt.Println("消息来到")
 	mp := weixinmp.New(token, appid, secret)
+	mp.ReplyTextMsg(w, "Hello, 世界")
 	// 检查请求是否有效
 	// 仅主动发送消息时不用检查
 	if !mp.Request.IsValid(w, r) {
