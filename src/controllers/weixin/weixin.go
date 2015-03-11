@@ -110,9 +110,9 @@ func Receiver(w http.ResponseWriter, r *http.Request) {
 	secret := "99a335cf1a73c15cb50422dd3004fd41" // 微信公众平台的AppSecret
 	// 仅被动响应消息时可不填写appid、secret
 	// 仅主动发送消息时可不填写token
-	fmt.Println("消息来到")
+	fmt.Println("message here!")
 	mp := weixinmp.New(token, appid, secret)
-	mp.ReplyTextMsg(w, "Hello, 世界")
+	//mp.ReplyTextMsg(w, "Hello, 世界")
 	// 检查请求是否有效
 	// 仅主动发送消息时不用检查
 	if !mp.Request.IsValid(w, r) {
