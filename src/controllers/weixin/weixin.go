@@ -16,7 +16,7 @@ import (
 
 //weixin Controller 请求路径
 //var Prefix string = "/sign"
-var SignPrefix string = "/wx"
+var SignPrefix string = ""
 var ActionPrefix string = "/action"
 
 //微信请求消息结构
