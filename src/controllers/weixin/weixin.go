@@ -118,9 +118,10 @@ func Receiver(w http.ResponseWriter, r *http.Request) {
 	if !mp.Request.IsValid(w, r) {
 		return
 	}
+
 	// 判断消息类型
 	if mp.Request.MsgType == weixinmp.MsgTypeText {
 		// 回复消息
-		mp.ReplyTextMsg(w, "Hello, 世界")
+		mp.ReplyTextMsg(w, "自动回复：你说了 "+mp.Request.Content)
 	}
 }
