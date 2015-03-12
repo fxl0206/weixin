@@ -121,7 +121,10 @@ func Receiver(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("message :!" + mp.Request.Content)
 		// 回复消息
 		mp.ReplyTextMsg(w, "自动回复：lucky 好哈都不晓得！ 你说了 "+mp.Request.Content)
-		mp.SendTextMsg("fxl0206", mp.Request.Content)
+		var err=mp.SendTextMsg("fxl0206", mp.Request.Content)\
+		if err!=nil {
+			fmt.Print(err)
+		}
 	} else if mp.Request.MsgType == weixinmp.MsgTypeEvent {
 		mp.ReplyTextMsg(w, "感谢支持关注灰色的小鸟！")
 	}
