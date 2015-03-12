@@ -111,18 +111,17 @@ func Receiver(w http.ResponseWriter, r *http.Request) {
 	// 仅被动响应消息时可不填写appid、secret
 	// 仅主动发送消息时可不填写token
 	mp := weixinmp.New(token, appid, secret)
-	fmt.Println("message here : " + mp.Request.Content)
-
 	// 检查请求是否有效
 	// 仅主动发送消息时不用检查
 	if !mp.Request.IsValid(w, r) {
 		return
 	}
-
 	// 判断消息类型
 	if mp.Request.MsgType == weixinmp.MsgTypeText {
+		fmt.Println("message :!" + mp.Request.Content)
 		// 回复消息
-		mp.ReplyTextMsg(w, "自动回复：你说了 "+mp.Request.Content)
+		mp.ReplyTextMsg(w, "自动回复：lucky 好哈都不晓得！ 你说了 "+mp.Request.Content)
+		mp.SendTextMsg("fxl0206", mp.Request.Content)
 	} else if mp.Request.MsgType == weixinmp.MsgTypeEvent {
 		mp.ReplyTextMsg(w, "感谢支持关注灰色的小鸟！")
 	}
