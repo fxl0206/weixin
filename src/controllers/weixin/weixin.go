@@ -92,6 +92,8 @@ func DoAction(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			fmt.Printf("error:%v\n", err)
 		}
+		fmt.Printf("error:%v\n", string(output))
+
 		fmt.Fprintf(w, string(output))
 	} else {
 		log.Println("Something is Wrong!")
