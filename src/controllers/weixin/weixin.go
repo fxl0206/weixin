@@ -108,8 +108,8 @@ func str2sha1(data string) string {
 //微信方式2
 func Receiver(w http.ResponseWriter, r *http.Request) {
 	token := "myluckyfxl"                        // 微信公众平台的Token
-	appid := "wxe23370ffc2050dba"                // 微信公众平台的AppID
-	secret := "99a335cf1a73c15cb50422dd3004fd41" // 微信公众平台的AppSecret
+	appid := ""                // 微信公众平台的AppID
+	secret := "" // 微信公众平台的AppSecret
 	// 仅被动响应消息时可不填写appid、secret
 	// 仅主动发送消息时可不填写token
 	mp := weixinmp.New(token, appid, secret)
